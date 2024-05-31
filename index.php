@@ -61,17 +61,47 @@
         .section {
             display: none;
         }
+        .btn {
+            display: inline-block;
+            padding: 0.9rem 1.8rem;
+            font-size: 16px;
+            font-weight: 700;
+            color: white;
+            border: 3px solid rgb(252, 70, 100);
+            cursor: pointer;
+            position: relative;
+            background-color: transparent;
+            text-decoration: none;
+            overflow: hidden;
+            z-index: 1;
+            font-family: inherit;
+        }
+        .btn::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(252, 70, 100);
+            transform: translateX(-100%);
+            transition: all .3s;
+            z-index: -1;
+        }
+        .btn:hover::before {
+            transform: translateX(0);
+        }
     </style>
 </head>
 <body>
     <nav>
         <ul>
-            <li><a href="#listarCorredores" onclick="showSection('listarCorredores')">Listar Corredores</a></li>
-            <li><a href="#agregarCorredor" onclick="showSection('agregarCorredor')">Agregar Corredor</a></li>
-            <li><a href="#actualizarCorredor" onclick="showSection('actualizarCorredor')">Actualizar Corredor</a></li>
-            <li><a href="#eliminarCorredor" onclick="showSection('eliminarCorredor')">Eliminar Corredor</a></li>
-            <li><a href="#simularCarrera" onclick="showSection('simularCarrera')">Simular Carrera</a></li>
-            <li><a href="#historialCarrera" onclick="showSection('historialCarrera')">Historial de Carrera</a></li>
+            <li><a href="#listarCorredores" class="btn" onclick="showSection('listarCorredores')">Listar Corredores</a></li>
+            <li><a href="#agregarCorredor" class="btn" onclick="showSection('agregarCorredor')">Agregar Corredor</a></li>
+            <li><a href="#actualizarCorredor" class="btn" onclick="showSection('actualizarCorredor')">Actualizar Corredor</a></li>
+            <li><a href="#eliminarCorredor" class="btn" onclick="showSection('eliminarCorredor')">Eliminar Corredor</a></li>
+            <li><a href="#simularCarrera" class="btn" onclick="showSection('simularCarrera')">Simular Carrera</a></li>
+            <li><a href="#historialCarrera" class="btn" onclick="showSection('historialCarrera')">Historial de Carrera</a></li>
         </ul>
     </nav>
     <div class="content">
@@ -79,34 +109,34 @@
         <div id="listarCorredores" class="section">
             <h2>Corredores</h2>
             <ul id="corredoresList"></ul>
-            <button onclick="getCorredores()">Listar Corredores</button>
+            <button class="btn" onclick="getCorredores()">Listar Corredores</button>
         </div>
         <div id="agregarCorredor" class="section">
             <h2>Agregar Corredor</h2>
             <input type="text" id="nombre" placeholder="Nombre">
-            <button onclick="addCorredor()">Agregar</button>
+            <button class="btn" onclick="addCorredor()">Agregar</button>
         </div>
         <div id="actualizarCorredor" class="section">
             <h2>Actualizar Corredor</h2>
             <input type="number" id="idCorredorActualizar" placeholder="ID del Corredor">
             <input type="text" id="nombreNuevo" placeholder="Nuevo Nombre">
-            <button onclick="updateCorredor()">Actualizar</button>
+            <button class="btn" onclick="updateCorredor()">Actualizar</button>
         </div>
         <div id="eliminarCorredor" class="section">
             <h2>Eliminar Corredor</h2>
             <input type="number" id="idCorredorEliminar" placeholder="ID del Corredor">
-            <button onclick="deleteCorredor()">Eliminar</button>
+            <button class="btn" onclick="deleteCorredor()">Eliminar</button>
         </div>
         <div id="simularCarrera" class="section">
             <h2>Simular Carrera</h2>
             <input type="number" id="numeroCorredores" placeholder="Número de Corredores">
             <input type="number" id="distanciaCarrera" placeholder="Distancia de Carrera (km)">
-            <button onclick="simularCarrera()">Simular</button>
+            <button class="btn" onclick="simularCarrera()">Simular</button>
             <pre id="resultado"></pre>
         </div>
         <div id="historialCarrera" class="section">
             <h2>Historial de Carrera</h2>
-            <button onclick="getHistorial()">Obtener Historial</button>
+            <button class="btn" onclick="getHistorial()">Obtener Historial</button>
             <ul id="historialList"></ul>
         </div>
     </div>
