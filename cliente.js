@@ -70,7 +70,20 @@ async function simularCarrera() {
     if (response.ok) {
         const resultado = await response.json();
         document.getElementById('resultado').textContent = JSON.stringify(resultado, null, 2);
+        await getHistorial();
     } else {
         alert('Error al simular la carrera');
     }
+}
+
+async function getHistorial() {
+    const response = await fetch(`${apiUrl}/historial`);
+    const historial = await response.json();
+    const historialList = document.getElementById('historialList');
+    historialList.innerHTML = '';
+    historial.forEach(entry => {
+        const li = document.createElement('li');
+        li.textContent = `Hora ${entry.horas}: ${entry.posiciones.map(pos => `${pos.nombre}: ${pos.posicion.toFixed(2)} km`).join(', ')}`;
+        historialList.appendChild(li);
+    });
 }

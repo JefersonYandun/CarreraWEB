@@ -1,0 +1,38 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  h1, h2 {
+    color: #333;
+  }
+  
+  input, button {
+    margin: 5px 0;
+    padding: 10px;
+    font-size: 1em;
+  }
+  
+  .seccion {
+    margin-bottom: 20px;
+  }
+  
+  .seccion h2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .btn-toggle {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+  }
+  
+  .contenido-seccion {
+    display: none;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
